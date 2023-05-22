@@ -1,0 +1,79 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons>
+			<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Create your account</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content scrollY="false">
+	<ion-card>
+		<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+			<ion-card-header>
+				<ion-card-title>Register</ion-card-title>
+			</ion-card-header>
+			
+			<ion-card-content>
+				<ion-item class="ion-no-padding">
+					<ion-label position="floating">Name</ion-label>
+					<ion-input type="text" formControlName="name"></ion-input>
+					<ion-text
+						color="danger"
+						class="text-sm"
+						*ngIf="registerForm.controls.name.hasError('required') && registerForm.controls.name.touched">
+						Name is required
+					</ion-text>
+				</ion-item>
+				
+				<ion-item class="ion-no-padding">
+					<ion-label position="floating">Email</ion-label>
+					<ion-input type="email" formControlName="email"></ion-input>
+					<ion-text
+						color="danger"
+						class="text-sm"
+						*ngIf="registerForm.controls.email.hasError('required') && registerForm.controls.email.touched">
+						Email is required
+					</ion-text>
+					<ion-text
+						color="danger"
+						class="text-sm"
+						*ngIf="registerForm.controls.email.hasError('email') && registerForm.controls.email.touched">
+						Email is invalid
+					</ion-text>
+				</ion-item>
+				
+				<ion-item class="ion-no-padding">
+					<ion-label position="floating">Password</ion-label>
+					<ion-input type="password" formControlName="password"></ion-input>
+					<ion-text
+						color="danger"
+						class="text-sm"
+						*ngIf="registerForm.controls.password.hasError('required') && registerForm.controls.password.touched">
+						Password is required
+					</ion-text>
+					<ion-text
+						color="danger"
+						class="text-sm"
+						*ngIf="registerForm.controls.password.hasError('minlength') && registerForm.controls.password.touched">
+						Password must be at least six characters
+					</ion-text>
+				</ion-item>
+				
+				<ion-button
+					class="ion-margin-vertical"
+					expand="block"
+					color="secondary"
+					type="submit"
+					[disabled]="registerForm.invalid"
+				>Create Account
+				</ion-button>
+			</ion-card-content>
+		</form>
+	</ion-card>
+	
+	<div class="text-center">
+		<p>Already have an account?</p>
+		<ion-button type="button" fill="outline" routerLink="/">Login</ion-button>
+	</div>
+</ion-content>
