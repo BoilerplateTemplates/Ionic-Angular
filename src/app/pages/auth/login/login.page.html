@@ -12,39 +12,48 @@
 			</ion-card-header>
 			
 			<ion-card-content>
-				<ion-item class="ion-no-padding">
-					<ion-label position="floating">Email</ion-label>
-					<ion-input type="email" formControlName="email"></ion-input>
-					<ion-text
-						color="danger"
-						class="text-sm"
-						*ngIf="loginForm.controls.email.hasError('required') && loginForm.controls.email.touched">
-						Email is required
-					</ion-text>
-					<ion-text
-						color="danger"
-						class="text-sm"
-						*ngIf="loginForm.controls.email.hasError('email') && loginForm.controls.email.touched">
-						Email is invalid
-					</ion-text>
-				</ion-item>
+				<ion-input
+					type="email"
+					fill="outline"
+					label="Email"
+					labelPlacement="floating"
+					helperText="Your email address"
+					formControlName="email"
+					required="true"
+					email></ion-input>
+				<ion-text
+					color="danger"
+					class="text-xs"
+					*ngIf="loginForm.controls.email.hasError('required') && loginForm.controls.email.touched">
+					Email is required
+				</ion-text>
+				<ion-text
+					color="danger"
+					class="text-xs"
+					*ngIf="loginForm.controls.email.hasError('email') && loginForm.controls.email.touched">
+					Email is invalid
+				</ion-text>
 				
-				<ion-item class="ion-no-padding">
-					<ion-label position="floating">Password</ion-label>
-					<ion-input type="password" formControlName="password"></ion-input>
-					<ion-text
-						color="danger"
-						class="text-sm"
-						*ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">
-						Password is required
-					</ion-text>
-					<ion-text
-						color="danger"
-						class="text-sm"
-						*ngIf="loginForm.controls.password.hasError('minlength') && loginForm.controls.password.touched">
-						Password must be at least six characters
-					</ion-text>
-				</ion-item>
+				<ion-input
+					type="password"
+					fill="outline"
+					label="Password"
+					labelPlacement="floating"
+					helperText="Your password"
+					formControlName="password"
+					required="true"></ion-input>
+				<ion-text
+					color="danger"
+					class="text-xs"
+					*ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">
+					Password is required
+				</ion-text>
+				<ion-text
+					color="danger"
+					class="text-xs"
+					*ngIf="loginForm.controls.password.hasError('minlength') && loginForm.controls.password.touched">
+					Password must be at least six characters
+				</ion-text>
 				
 				<ion-button
 					class="ion-margin-vertical"

@@ -15,50 +15,64 @@
 			</ion-card-header>
 			
 			<ion-card-content>
-				<ion-item class="ion-no-padding">
-					<ion-label position="floating">Name</ion-label>
-					<ion-input type="text" formControlName="name"></ion-input>
-					<ion-text
-						color="danger"
-						class="text-sm"
-						*ngIf="registerForm.controls.name.hasError('required') && registerForm.controls.name.touched">
-						Name is required
-					</ion-text>
-				</ion-item>
+				<ion-input
+					type="text"
+					fill="outline"
+					label="Name"
+					labelPlacement="floating"
+					helperText="Your name"
+					formControlName="name"
+					required="true"
+					email></ion-input>
+				<ion-text
+					color="danger"
+					class="text-xs"
+					*ngIf="registerForm.controls.name.hasError('required') && registerForm.controls.name.touched">
+					Name is required
+				</ion-text>
 				
-				<ion-item class="ion-no-padding">
-					<ion-label position="floating">Email</ion-label>
-					<ion-input type="email" formControlName="email"></ion-input>
-					<ion-text
-						color="danger"
-						class="text-sm"
-						*ngIf="registerForm.controls.email.hasError('required') && registerForm.controls.email.touched">
-						Email is required
-					</ion-text>
-					<ion-text
-						color="danger"
-						class="text-sm"
-						*ngIf="registerForm.controls.email.hasError('email') && registerForm.controls.email.touched">
-						Email is invalid
-					</ion-text>
-				</ion-item>
+				<ion-input
+					type="email"
+					fill="outline"
+					label="Email"
+					labelPlacement="floating"
+					helperText="Your email address"
+					formControlName="email"
+					required="true"
+					email></ion-input>
+				<ion-text
+					color="danger"
+					class="text-xs"
+					*ngIf="registerForm.controls.email.hasError('required') && registerForm.controls.email.touched">
+					Email is required
+				</ion-text>
+				<ion-text
+					color="danger"
+					class="text-xs"
+					*ngIf="registerForm.controls.email.hasError('email') && registerForm.controls.email.touched">
+					Email is invalid
+				</ion-text>
 				
-				<ion-item class="ion-no-padding">
-					<ion-label position="floating">Password</ion-label>
-					<ion-input type="password" formControlName="password"></ion-input>
-					<ion-text
-						color="danger"
-						class="text-sm"
-						*ngIf="registerForm.controls.password.hasError('required') && registerForm.controls.password.touched">
-						Password is required
-					</ion-text>
-					<ion-text
-						color="danger"
-						class="text-sm"
-						*ngIf="registerForm.controls.password.hasError('minlength') && registerForm.controls.password.touched">
-						Password must be at least six characters
-					</ion-text>
-				</ion-item>
+				<ion-input
+					type="password"
+					fill="outline"
+					label="Password"
+					labelPlacement="floating"
+					helperText="Your password"
+					formControlName="password"
+					required="true"></ion-input>
+				<ion-text
+					color="danger"
+					class="text-xs"
+					*ngIf="registerForm.controls.password.hasError('required') && registerForm.controls.password.touched">
+					Password is required
+				</ion-text>
+				<ion-text
+					color="danger"
+					class="text-xs"
+					*ngIf="registerForm.controls.password.hasError('minlength') && registerForm.controls.password.touched">
+					Password must be at least six characters
+				</ion-text>
 				
 				<ion-button
 					class="ion-margin-vertical"

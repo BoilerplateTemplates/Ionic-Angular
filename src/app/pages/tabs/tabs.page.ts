@@ -1,4 +1,4 @@
-import { Component, EnvironmentInjector, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +6,7 @@ import { Component, EnvironmentInjector, OnInit } from '@angular/core';
   styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-  constructor(public environmentInjector: EnvironmentInjector) {}
+  constructor() {}
 
   ngOnInit() {}
 }
