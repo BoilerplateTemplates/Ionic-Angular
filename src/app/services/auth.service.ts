@@ -4,7 +4,7 @@ import { BehaviorSubject, filter, map, Observable, switchMap } from 'rxjs';
 import { Storage } from '@ionic/storage-angular';
 import { Router, UrlTree } from '@angular/router';
 
-import { API_URL, USER_APP_TOKEN } from './constants';
+import { API_URL } from './constants';
 import { Device } from '@capacitor/device';
 
 export interface DeviceData {
@@ -23,6 +23,7 @@ export class AuthService {
   private device: BehaviorSubject<DeviceData> = new BehaviorSubject<DeviceData>(
     { id: 'IonicDefault' }
   );
+
   private user: BehaviorSubject<UserData | null | undefined> =
     new BehaviorSubject<UserData | null | undefined>(undefined);
 
@@ -42,7 +43,7 @@ export class AuthService {
   }
 
   async loadUser() {
-    const data = await this.storage.get(USER_APP_TOKEN);
+    const data = await this.storage.get('authToken');
 
     if (data) {
       const decoded: any = data.split('|');
@@ -81,13 +82,13 @@ export class AuthService {
       })
       .pipe(
         map((res: any) => {
-          this.storage.set(USER_APP_TOKEN, res.token);
+          this.storage.set('authToken', res.token);
 
           const decoded: any = res.token.split('|');
 
           const userData = {
             token: res.token,
-            id: res.decoded,
+            id: decoded[0],
           };
 
           this.user.next(userData);
@@ -106,7 +107,8 @@ export class AuthService {
       })
       .pipe(
         map((res: any) => {
-          this.storage.remove(USER_APP_TOKEN);
+          this.storage.remove('hideOnboarding');
+          this.storage.remove('authToken');
           this.user.next(null);
         })
       );

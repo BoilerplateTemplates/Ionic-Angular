@@ -14,11 +14,11 @@ import { from, switchMap } from 'rxjs';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import { Drivers } from '@ionic/storage';
 
-import { STORAGE_KEY, USER_APP_TOKEN } from './services/constants';
+import { STORAGE_KEY } from './services/constants';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const storage = inject(Storage);
-  const tokenObs = from(storage.get(USER_APP_TOKEN));
+  const tokenObs = from(storage.get('authToken'));
 
   return tokenObs.pipe(
     switchMap((token) => {

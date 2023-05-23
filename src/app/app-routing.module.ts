@@ -6,6 +6,13 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
+      import('./pages/onboarding/onboarding.module').then(
+        (m) => m.OnboardingPageModule
+      ),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
       import('./pages/auth/login/login.module').then((m) => m.LoginPageModule),
     canActivate: [() => inject(AuthService).shouldLogin()],
   },
