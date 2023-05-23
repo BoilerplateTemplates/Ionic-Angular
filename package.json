@@ -1,8 +1,15 @@
 {
-  "name": "com.csoutham.boilerplate-ionic",
+  "name": "boilerplate-templates-ionic-angular",
   "version": "0.0.1",
-  "author": "Ionic Boilerplate",
-  "homepage": "https://github.com/csoutham/boilerplate-ionic",
+  "description": "Boilerplate Templates - Ionic Angular",
+  "homepage": "https://github.com/BoilerplateTemplates/Ionic-Angular",
+  "authors": [
+    {
+      "name": "Chris Southam",
+      "email": "chris@cjsoutham.com",
+      "homepage": "https://github.com/BoilerplateTemplates/Ionic-Angular"
+    }
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -83,6 +90,5 @@
     "tailwindcss": "^3.1.6",
     "ts-node": "~8.3.0",
     "typescript": "~4.8.4"
-  },
-  "description": "An Ionic project"
+  }
 }

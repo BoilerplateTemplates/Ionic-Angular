@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.csoutham.ionicboilerplate',
+  appId: 'BoilerplateTemplates/Ionic-Angular',
   appName: 'ionic',
   webDir: 'www',
   server: {
